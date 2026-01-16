@@ -1,0 +1,1 @@
+{ "title": "會員管理系統", "login": "登入", "logout": "登出", "members": "會員名單", "add_member": "新增會員", "edit_member": "編輯會員", "name": "名稱", "email": "電子郵件", "role": "角色", "actions": "操作", "theme": "主題", "language": "語言", "admin_only": "僅限管理員", "delete": "刪除", "save": "儲存", "cancel": "取消" }
