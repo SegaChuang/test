@@ -13,20 +13,23 @@ export default function MemberForm({ open, initial, onCancel, onSave }: Props) {
   const [form] = Form.useForm()
 
   useEffect(() => {
-    form.resetFields()
-    if (initial) form.setFieldsValue(initial)
-  }, [initial, form])
+    if (open) {
+      form.resetFields()
+      if (initial) form.setFieldsValue(initial)
+    }
+  }, [initial, form, open])
 
   return (
-    <Modal open={open} onCancel={onCancel} onOk={() => form.submit()} okText="Save">
+    // forceRender ensures the Form instance is created even when Modal is not open to avoid useForm warning
+    <Modal open={open} forceRender onCancel={onCancel} onOk={() => form.submit()} okText="Save">
       <Form form={form} onFinish={values => onSave(values)} layout="vertical">
-        <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+        <Form.Item name="name" label="Name" rules={[{ required: true }]}>  
           <Input />
         </Form.Item>
         <Form.Item name="email" label="Email" rules={[{ required: true, type: 'email' }]}>
           <Input />
         </Form.Item>
-        <Form.Item name="role" label="Role" rules={[{ required: true }]}>
+        <Form.Item name="role" label="Role" rules={[{ required: true }]}>  
           <Select>
             <Select.Option value="admin">admin</Select.Option>
             <Select.Option value="manager">manager</Select.Option>
