@@ -6,7 +6,7 @@ import Header from './components/Header'
 import MemberList from './components/MemberList'
 import ProtectedRoute from './components/ProtectedRoute'
 import { useTranslation } from 'react-i18next'
-import 'antd/dist/antd.css'
+import 'antd/dist/reset.css'
 
 function AdminOnlyPage() {
   const { t } = useTranslation()
